@@ -268,15 +268,18 @@
           try {
             /* API */
 
-            const response = await fetch("http://localhost:5000/login", {
-              method: "POST",
+            const response = await fetch(
+              "https://fuelshare-exk6.onrender.com/login",
+              {
+                method: "POST",
 
-              headers: {
-                "Content-Type": "application/json",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+
+                body: JSON.stringify(data),
               },
-
-              body: JSON.stringify(data),
-            });
+            );
 
             const result = await response.json();
 
