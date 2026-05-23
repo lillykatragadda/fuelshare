@@ -1,14 +1,20 @@
+require("dotenv").config();
+
 console.log("Server File Running...");
 
+/* =========================================
+IMPORTS
+========================================= */
+
 const express = require("express");
-
 const mysql = require("mysql2");
-
 const cors = require("cors");
-
 const bodyParser = require("body-parser");
-
 const path = require("path");
+
+/* =========================================
+APP
+========================================= */
 
 const app = express();
 
@@ -18,6 +24,8 @@ MIDDLEWARE
 
 app.use(cors());
 
+app.use(express.json());
+
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,22 +34,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 STATIC FRONTEND
 ========================================= */
 
-app.use(express.static(".."));
+app.use(express.static(path.join(__dirname, "..")));
 
 /* =========================================
 MYSQL CONNECTION
 ========================================= */
 
 const db = mysql.createConnection({
-  host: "localhost",
-
-  port: 3307,
-
-  user: "root",
-
-  password: "",
-
-  database: "fuelshare",
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 /* =========================================
@@ -50,8 +54,7 @@ CONNECT DATABASE
 
 db.connect((err) => {
   if (err) {
-    console.log("DATABASE ERROR:");
-
+    console.log("DATABASE CONNECTION ERROR:");
     console.log(err);
   } else {
     console.log("MySQL Connected Successfully");
@@ -63,7 +66,7 @@ HOME ROUTE
 ========================================= */
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/../index.html");
+  res.sendFile(path.join(__dirname, "../index.html"));
 });
 
 /* =========================================
@@ -79,16 +82,16 @@ app.post("/register", (req, res) => {
     if (err) {
       console.log(err);
 
-      res.send("Database Error");
+      res.status(500).send("Database Error");
     } else {
-      res.send("Registration Successful");
+      res.json({
+        success: true,
+        message: "Registration Successful",
+      });
     }
   });
 });
 
-/* =========================================
-LOGIN
-========================================= */
 /* =========================================
 LOGIN
 ========================================= */
@@ -102,42 +105,31 @@ app.post("/login", (req, res) => {
     if (err) {
       console.log(err);
 
-      res.send(err);
+      res.status(500).send(err);
     } else {
       if (result.length > 0) {
         res.json({
           success: true,
-
           role: result[0].role,
-
           fullname: result[0].fullname,
-
           email: result[0].email,
         });
       } else {
         res.json({
           success: false,
+          message: "Invalid Email or Password",
         });
       }
     }
   });
 });
+
 /* =========================================
 SAVE PROFILE
 ========================================= */
 
 app.post("/save-profile", (req, res) => {
-  const {
-    fullname,
-
-    email,
-
-    phone,
-
-    age,
-  } = req.body;
-
-  /* CHECK EXISTING */
+  const { fullname, email, phone, age } = req.body;
 
   const checkSql = "SELECT * FROM user_profiles WHERE email=?";
 
@@ -145,10 +137,8 @@ app.post("/save-profile", (req, res) => {
     if (err) {
       console.log(err);
 
-      res.send(err);
+      res.status(500).send(err);
     } else {
-      /* UPDATE */
-
       if (result.length > 0) {
         const updateSql = `
           UPDATE user_profiles
@@ -156,54 +146,42 @@ app.post("/save-profile", (req, res) => {
           WHERE email=?
         `;
 
-        db.query(
-          updateSql,
+        db.query(updateSql, [fullname, phone, age, email], (err2, result2) => {
+          if (err2) {
+            console.log(err2);
 
-          [fullname, phone, age, email],
-
-          (err2) => {
-            if (err2) {
-              console.log(err2);
-
-              res.send(err2);
-            } else {
-              res.json({
-                success: true,
-                message: "Profile Updated",
-              });
-            }
-          },
-        );
+            res.status(500).send(err2);
+          } else {
+            res.json({
+              success: true,
+              message: "Profile Updated Successfully",
+            });
+          }
+        });
       } else {
-        /* INSERT */
         const insertSql = `
           INSERT INTO user_profiles
           (fullname,email,phone,age)
           VALUES(?,?,?,?)
         `;
 
-        db.query(
-          insertSql,
+        db.query(insertSql, [fullname, email, phone, age], (err3, result3) => {
+          if (err3) {
+            console.log(err3);
 
-          [fullname, email, phone, age],
-
-          (err3) => {
-            if (err3) {
-              console.log(err3);
-
-              res.send(err3);
-            } else {
-              res.json({
-                success: true,
-                message: "Profile Saved",
-              });
-            }
-          },
-        );
+            res.status(500).send(err3);
+          } else {
+            res.json({
+              success: true,
+              message: "Profile Saved Successfully",
+            });
+          }
+        });
       }
     }
   });
 });
+
 /* =========================================
 GET PROFILE
 ========================================= */
@@ -217,17 +195,17 @@ app.get("/get-profile/:email", (req, res) => {
     if (err) {
       console.log(err);
 
-      res.send(err);
+      res.status(500).send(err);
     } else {
       if (result.length > 0) {
         res.json({
           success: true,
-
           profile: result[0],
         });
       } else {
         res.json({
           success: false,
+          message: "Profile Not Found",
         });
       }
     }
@@ -238,6 +216,8 @@ app.get("/get-profile/:email", (req, res) => {
 SERVER
 ========================================= */
 
-app.listen(5000, () => {
-  console.log("Server Running On Port 5000");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server Running On Port ${PORT}`);
 });
