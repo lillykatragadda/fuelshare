@@ -24,7 +24,6 @@
     <header class="navbar">
       <div class="logo">
         <i class="fa-solid fa-car-side"></i>
-
         FuelShare
       </div>
 
@@ -70,9 +69,9 @@
           FuelShare is transforming the way people travel. Whether you're a
           passenger looking for affordable rides or a driver wanting to earn
           while traveling, FuelShare provides a secure and intelligent platform
-          for modern transportation. Join thousands of users already saving
-          fuel, time, and money every day.
+          for modern transportation.
         </p>
+
         <div class="benefits">
           <div class="benefit-card">
             <i class="fa-solid fa-gas-pump"></i>
@@ -100,24 +99,37 @@
         </div>
       </div>
 
-      <!-- FORM -->
+      <!-- REGISTER FORM -->
 
       <div class="form-container">
         <h1>Create Account</h1>
 
         <form id="registerForm">
-          <input type="text" name="fullname" placeholder="Full Name" required />
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Full Name"
+            required
+          />
 
-          <input type="email" name="email" placeholder="Email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
 
           <input
             type="password"
+            id="password"
             name="password"
             placeholder="Password"
             required
           />
 
-          <select name="role">
+          <select id="role" name="role">
             <option value="passenger">Passenger</option>
 
             <option value="driver">Driver</option>
@@ -131,8 +143,7 @@
         <div class="extra-links">
           <p>
             Already have an account?
-
-            <a href="login.html"> Login </a>
+            <a href="login.html">Login</a>
           </p>
         </div>
       </div>
@@ -143,25 +154,21 @@
     <section class="stats-section">
       <div class="stat-card">
         <h1>10K+</h1>
-
         <p>Users</p>
       </div>
 
       <div class="stat-card">
         <h1>50K+</h1>
-
         <p>Trips Completed</p>
       </div>
 
       <div class="stat-card">
         <h1>98%</h1>
-
         <p>Safe Rides</p>
       </div>
 
       <div class="stat-card">
         <h1>4.9★</h1>
-
         <p>User Rating</p>
       </div>
     </section>
@@ -200,33 +207,17 @@
 
     <!-- FOOTER -->
 
-    <!-- MODERN FOOTER -->
-
     <footer class="modern-footer">
-      <div class="footer-wave"></div>
-
       <div class="footer-content">
-        <!-- LEFT -->
         <div class="footer-box">
           <h2><i class="fa-solid fa-car-side"></i> FuelShare</h2>
 
           <p>
             FuelShare helps passengers and drivers save fuel costs through
-            smart, secure and eco-friendly ride sharing across India.
+            smart, secure and eco-friendly ride sharing.
           </p>
-
-          <div class="footer-socials">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-
-            <a href="#"><i class="fab fa-github"></i></a>
-
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </div>
         </div>
 
-        <!-- QUICK LINKS -->
         <div class="footer-box">
           <h3>Quick Links</h3>
 
@@ -237,26 +228,8 @@
           <a href="contact.html">Contact</a>
 
           <a href="payment.html">Payments</a>
-
-          <a href="login.html">Login</a>
         </div>
 
-        <!-- SERVICES -->
-        <div class="footer-box">
-          <h3>Services</h3>
-
-          <a href="#">Ride Sharing</a>
-
-          <a href="#">Fuel Saving</a>
-
-          <a href="#">Secure Payments</a>
-
-          <a href="#">Verified Drivers</a>
-
-          <a href="#">Smart Matching</a>
-        </div>
-
-        <!-- CONTACT -->
         <div class="footer-box">
           <h3>Contact</h3>
 
@@ -269,32 +242,28 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 FuelShare | Designed with ❤️ for Smart Travel</p>
+        <p>© 2026 FuelShare | Smart Ride Sharing Platform</p>
       </div>
     </footer>
+
+    <!-- REGISTER SCRIPT -->
 
     <script>
       const form = document.getElementById("registerForm");
 
-      form.addEventListener(
-        "submit",
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-        async (e) => {
-          e.preventDefault();
+        const data = {
+          fullname: document.getElementById("fullname").value,
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+          role: document.getElementById("role").value,
+        };
 
-          const data = {
-            fullname: form.fullname.value,
-
-            email: form.email.value,
-
-            password: form.password.value,
-
-            role: form.role.value,
-          };
-
+        try {
           const response = await fetch(
-            "http://https://fuelshare-exk6.onrender.com/register",
-
+            "https://fuelshare-exk6.onrender.com/register",
             {
               method: "POST",
 
@@ -306,20 +275,21 @@
             },
           );
 
-          const result = await response.text();
+          const result = await response.json();
 
-          alert(result);
+          if (result.success) {
+            alert("Registration Successful!");
 
-          window.location.href = "login.html";
-        },
-      );
-    </script>
-    <script>
-      fetch("components/navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-container").innerHTML = data;
-        });
+            window.location.href = "login.html";
+          } else {
+            alert(result.message || "Registration Failed");
+          }
+        } catch (error) {
+          console.log(error);
+
+          alert("Server Error");
+        }
+      });
     </script>
 
     <script src="js/navbar.js"></script>
