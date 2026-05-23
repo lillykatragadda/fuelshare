@@ -1,0 +1,571 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FuelShare</title>
+
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+   
+      
+    <!-- FLOATING CIRCLES -->
+
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+
+    <!-- NAVBAR -->
+
+   <header class="navbar">
+
+  <div class="logo">
+    <i class="fa-solid fa-car-side"></i>
+    FuelShare
+  </div>
+
+  <nav>
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <li>
+        <a href="about.html">About</a>
+      </li>
+
+      <li>
+        <a href="contact.html">Contact</a>
+      </li>
+
+      <li>
+        <a href="payment.html">Payments</a>
+      </li>
+
+      <!-- BEFORE LOGIN -->
+
+      <div id="beforeLogin">
+
+        <li id="loginNav">
+          <a href="login.html">Login</a>
+        </li>
+
+        <li id="registerNav">
+          <a href="register.html">Register</a>
+        </li>
+
+      </div>
+
+      <!-- AFTER LOGIN -->
+
+      <div
+        id="afterLogin"
+        style="display: none"
+      >
+
+        <li class="profile-nav">
+
+          <div
+            class="profile-btn"
+            onclick="toggleProfile()"
+          >
+
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+            />
+
+            <span id="navbarName">
+              User
+            </span>
+
+            <i class="fa-solid fa-angle-down"></i>
+
+          </div>
+
+          <!-- PROFILE DROPDOWN -->
+
+          <div
+            class="profile-dropdown"
+            id="profileDropdown"
+          >
+
+            <button
+              class="close-profile"
+              onclick="closeProfile()"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="profile-header">
+
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+              />
+
+              <h3 id="profileName">
+                User
+              </h3>
+
+              <p id="profileEmail">
+                user@gmail.com
+              </p>
+
+            </div>
+
+            <div class="profile-fields">
+
+              <div class="input-box">
+
+                <label>Full Name</label>
+
+                <input
+                  type="text"
+                  id="editName"
+                />
+
+              </div>
+
+              <div class="input-box">
+
+                <label>Email</label>
+
+                <input
+                  type="email"
+                  id="editEmail"
+                />
+
+              </div>
+
+              <div class="input-box">
+
+                <label>Phone</label>
+
+                <input
+                  type="text"
+                  id="editPhone"
+                />
+
+              </div>
+
+              <div class="input-box">
+
+                <label>Age</label>
+
+                <input
+                  type="number"
+                  id="editAge"
+                />
+
+              </div>
+
+            </div>
+
+            <div class="profile-actions">
+
+              <button
+                onclick="saveProfile()"
+              >
+                Save Changes
+              </button>
+
+              <button
+                class="logout-btn"
+                onclick="logoutUser()"
+              >
+                Logout
+              </button>
+
+            </div>
+
+          </div>
+
+        </li>
+
+      </div>
+
+    </ul>
+
+  </nav>
+
+</header>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+      <div class="hero-left">
+        <div class="tag">India's Smartest Ride Sharing Platform</div>
+
+        <h1>
+          Save Fuel <br />
+          Travel Smarter
+        </h1>
+
+        <p>Share rides, reduce fuel costs, and travel safely with FuelShare.</p>
+
+        <div class="hero-buttons">
+          <a href="register.html" class="btn"> Get Started </a>
+
+          <a href="about.html" class="btn btn2"> Explore More </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <h2>10K+</h2>
+            <p>Users</p>
+          </div>
+
+          <div>
+            <h2>5K+</h2>
+            <p>Daily Rides</p>
+          </div>
+
+          <div>
+            <h2>98%</h2>
+            <p>Safety</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="features">
+      <h1 class="section-title">Why Choose FuelShare</h1>
+
+      <div class="feature-container">
+        <div class="feature-card">
+          <i class="fa-solid fa-gas-pump"></i>
+
+          <h2>Save Fuel</h2>
+
+          <p>Split petrol and diesel costs.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-shield"></i>
+
+          <h2>Secure Travel</h2>
+
+          <p>Verified users and safe rides.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-earth-asia"></i>
+
+          <h2>Eco Friendly</h2>
+
+          <p>Reduce pollution and traffic.</p>
+        </div>
+      </div>
+    </section>
+    <!-- FUEL PRICE SECTION -->
+
+    <section class="fuel-section">
+      <div class="fuel-left">
+        <h1>Fuel Prices Are Rising Rapidly</h1>
+
+        <p>
+          Due to global oil supply disruptions, increased transportation demand,
+          and international market instability, petrol and diesel prices
+          continue to rise in India. FuelShare helps users reduce daily travel
+          expenses through smart ride-sharing and fuel cost splitting.
+        </p>
+
+        <a href="register.html" class="fuel-btn"> Start Saving Today </a>
+      </div>
+
+      <div class="fuel-right">
+        <div class="fuel-card">
+          <h2>₹110+</h2>
+
+          <p>Petrol Price Per Liter</p>
+        </div>
+
+        <div class="fuel-card">
+          <h2>40%</h2>
+
+          <p>Travel Cost Reduction</p>
+        </div>
+
+        <div class="fuel-card">
+          <h2>Eco</h2>
+
+          <p>Reduce Carbon Emissions</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+
+    <section class="timeline-section">
+      <h1 class="section-title">Your Journey With FuelShare</h1>
+
+      <div class="timeline">
+        <div class="timeline-box">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-user-plus"></i>
+          </div>
+
+          <h2>Create Account</h2>
+
+          <p>Register quickly as passenger or driver.</p>
+        </div>
+
+        <div class="timeline-box">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+
+          <h2>Find Smart Rides</h2>
+
+          <p>Get matched with nearby travelers.</p>
+        </div>
+
+        <div class="timeline-box">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-car-side"></i>
+          </div>
+
+          <h2>Travel Together</h2>
+
+          <p>Enjoy secure and affordable journeys.</p>
+        </div>
+
+        <div class="timeline-box">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-wallet"></i>
+          </div>
+
+          <h2>Save Money</h2>
+
+          <p>Reduce fuel expenses every day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP SECTION -->
+
+    <section class="app-section">
+      <div class="app-content">
+        <h1>Travel Smarter With FuelShare</h1>
+
+        <p>
+          Experience the future of ride-sharing with modern technology,
+          real-time ride matching, safe payments, and intelligent travel
+          recommendations.
+        </p>
+
+        <div class="app-buttons">
+          <a href="#" class="app-btn">
+            <i class="fab fa-google-play"></i>
+            Google Play
+          </a>
+
+          <a href="#" class="app-btn">
+            <i class="fab fa-apple"></i>
+            App Store
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+
+    <section class="works">
+      <div class="works-left">
+        <img
+          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop"
+        />
+      </div>
+
+      <div class="works-right">
+        <h1>How FuelShare Works</h1>
+
+        <div class="work-box">
+          <h2>01</h2>
+
+          <div>
+            <h3>Create Account</h3>
+
+            <p>Register as passenger or driver.</p>
+          </div>
+        </div>
+
+        <div class="work-box">
+          <h2>02</h2>
+
+          <div>
+            <h3>Find Matching Rides</h3>
+
+            <p>Get smart ride recommendations.</p>
+          </div>
+        </div>
+
+        <div class="work-box">
+          <h2>03</h2>
+
+          <div>
+            <h3>Travel & Save</h3>
+
+            <p>Enjoy secure and affordable rides.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+
+    <section class="stats">
+      <div class="stat-card">
+        <h1>50K+</h1>
+
+        <p>Total Bookings</p>
+      </div>
+
+      <div class="stat-card">
+        <h1>25K+</h1>
+
+        <p>Passengers</p>
+      </div>
+
+      <div class="stat-card">
+        <h1>12K+</h1>
+
+        <p>Drivers</p>
+      </div>
+
+      <div class="stat-card">
+        <h1>4.9★</h1>
+
+        <p>Ratings</p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+
+    <section class="testimonials">
+      <h1 class="section-title">What Users Say</h1>
+
+      <div class="testimonial-container">
+        <div class="testimonial-card">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+          <h2>Priya</h2>
+
+          <p>FuelShare helped me save travel expenses daily.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" />
+
+          <h2>Rahul</h2>
+
+          <p>Best ride-sharing platform with secure travel.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" />
+
+          <h2>Anjali</h2>
+
+          <p>Amazing experience with smart ride matching.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <!-- MODERN FOOTER -->
+
+    <footer class="modern-footer">
+      <div class="footer-wave"></div>
+
+      <div class="footer-content">
+        <!-- LEFT -->
+        <div class="footer-box">
+          <h2><i class="fa-solid fa-car-side"></i> FuelShare</h2>
+
+          <p>
+            FuelShare helps passengers and drivers save fuel costs through
+            smart, secure and eco-friendly ride sharing across India.
+          </p>
+
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+
+            <a href="#"><i class="fab fa-github"></i></a>
+
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+
+          <a href="index.html">Home</a>
+
+          <a href="about.html">About</a>
+
+          <a href="contact.html">Contact</a>
+
+          <a href="payment.html">Payments</a>
+
+          <a href="login.html">Login</a>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="footer-box">
+          <h3>Services</h3>
+
+          <a href="#">Ride Sharing</a>
+
+          <a href="#">Fuel Saving</a>
+
+          <a href="#">Secure Payments</a>
+
+          <a href="#">Verified Drivers</a>
+
+          <a href="#">Smart Matching</a>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-box">
+          <h3>Contact</h3>
+
+          <p><i class="fa-solid fa-location-dot"></i> Vijayawada, India</p>
+
+          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+
+          <p><i class="fa-solid fa-envelope"></i> support@fuelshare.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 FuelShare | Designed with ❤️ for Smart Travel</p>
+      </div>
+    </footer>
+    <script src="js/navbar.js"></script>
+
+
+
+</body>
+</html>>
+  </body>
+</html>

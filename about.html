@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>About FuelShare</title>
+
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <i class="fa-solid fa-car-side"></i>
+        FuelShare
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+
+          <li>
+            <a href="about.html">About</a>
+          </li>
+
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+
+          <li>
+            <a href="payment.html">Payments</a>
+          </li>
+
+          <!-- BEFORE LOGIN -->
+
+          <div id="beforeLogin">
+            <li id="loginNav">
+              <a href="login.html">Login</a>
+            </li>
+
+            <li id="registerNav">
+              <a href="register.html">Register</a>
+            </li>
+          </div>
+
+          <!-- AFTER LOGIN -->
+
+          <div id="afterLogin" style="display: none">
+            <li class="profile-nav">
+              <div class="profile-btn" onclick="toggleProfile()">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+                <span id="navbarName"> User </span>
+
+                <i class="fa-solid fa-angle-down"></i>
+              </div>
+
+              <!-- PROFILE DROPDOWN -->
+
+              <div class="profile-dropdown" id="profileDropdown">
+                <button class="close-profile" onclick="closeProfile()">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="profile-header">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+                  <h3 id="profileName">User</h3>
+
+                  <p id="profileEmail">user@gmail.com</p>
+                </div>
+
+                <div class="profile-fields">
+                  <div class="input-box">
+                    <label>Full Name</label>
+
+                    <input type="text" id="editName" />
+                  </div>
+
+                  <div class="input-box">
+                    <label>Email</label>
+
+                    <input type="email" id="editEmail" />
+                  </div>
+
+                  <div class="input-box">
+                    <label>Phone</label>
+
+                    <input type="text" id="editPhone" />
+                  </div>
+
+                  <div class="input-box">
+                    <label>Age</label>
+
+                    <input type="number" id="editAge" />
+                  </div>
+                </div>
+
+                <div class="profile-actions">
+                  <button onclick="saveProfile()">Save Changes</button>
+
+                  <button class="logout-btn" onclick="logoutUser()">
+                    Logout
+                  </button>
+                </div>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+
+    <section class="about-hero">
+      <div class="overlay"></div>
+
+      <div class="about-content">
+        <h1>About FuelShare</h1>
+
+        <p>
+          FuelShare is a smart carpooling platform designed to reduce fuel
+          costs, traffic congestion, and provide secure ride-sharing
+          experiences.
+        </p>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+
+    <section class="mission">
+      <div class="mission-image">
+        <img
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop"
+        />
+      </div>
+
+      <div class="mission-content">
+        <h1>Our Mission</h1>
+
+        <p>
+          Our mission is to make transportation affordable, eco-friendly, and
+          smarter for everyone through secure ride-sharing.
+        </p>
+
+        <div class="mission-cards">
+          <div class="mini-card">
+            <h2>10K+</h2>
+            <p>Users</p>
+          </div>
+
+          <div class="mini-card">
+            <h2>5K+</h2>
+            <p>Daily Trips</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- IMPACT SECTION -->
+
+    <section class="impact-section">
+      <h1 class="section-title">Our Impact</h1>
+
+      <div class="impact-container">
+        <div class="impact-card">
+          <i class="fa-solid fa-leaf"></i>
+
+          <h2>Eco Friendly</h2>
+
+          <p>
+            FuelShare helps reduce traffic congestion and lowers carbon
+            emissions by encouraging ride-sharing across cities.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <i class="fa-solid fa-wallet"></i>
+
+          <h2>Save Expenses</h2>
+
+          <p>
+            Users can reduce daily travel expenses by splitting fuel costs with
+            nearby travelers.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <i class="fa-solid fa-users"></i>
+
+          <h2>Community</h2>
+
+          <p>
+            FuelShare builds a trusted travel community with secure and verified
+            passengers and drivers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY SECTION -->
+
+    <section class="journey-section">
+      <div class="journey-left">
+        <h1>Why FuelShare Was Created</h1>
+
+        <p>
+          Fuel prices are increasing rapidly due to global oil supply
+          disruptions and rising transportation demand. FuelShare was developed
+          to provide an affordable, smart, and sustainable travel solution for
+          students, employees, and daily commuters.
+        </p>
+
+        <a href="register.html" class="journey-btn"> Join FuelShare </a>
+      </div>
+
+      <div class="journey-right">
+        <div class="journey-box">
+          <h2>2026</h2>
+
+          <p>Started as a smart ride-sharing idea.</p>
+        </div>
+
+        <div class="journey-box">
+          <h2>10K+</h2>
+
+          <p>Users joined FuelShare community.</p>
+        </div>
+
+        <div class="journey-box">
+          <h2>50K+</h2>
+
+          <p>Successful rides completed safely.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+
+    <section class="team-section">
+      <h1 class="section-title">Meet Our Vision</h1>
+
+      <div class="team-container">
+        <div class="team-card">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" />
+
+          <h2>Lilly</h2>
+
+          <p>Project Developer</p>
+        </div>
+
+        <div class="team-card">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" />
+
+          <h2>Dinesh</h2>
+
+          <p>Ride Management</p>
+        </div>
+
+        <div class="team-card">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+          <h2>john</h2>
+
+          <p>User Experience</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="features">
+      <h1 class="section-title">Why FuelShare?</h1>
+
+      <div class="feature-container">
+        <div class="feature-card">
+          <i class="fa-solid fa-gas-pump"></i>
+
+          <h2>Save Fuel</h2>
+
+          <p>Reduce petrol and diesel expenses.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-road"></i>
+
+          <h2>Easy Booking</h2>
+
+          <p>Book rides instantly with smart matching.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-shield"></i>
+
+          <h2>Safe Travel</h2>
+
+          <p>Verified drivers and passengers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <!-- MODERN FOOTER -->
+
+    <footer class="modern-footer">
+      <div class="footer-wave"></div>
+
+      <div class="footer-content">
+        <!-- LEFT -->
+        <div class="footer-box">
+          <h2><i class="fa-solid fa-car-side"></i> FuelShare</h2>
+
+          <p>
+            FuelShare helps passengers and drivers save fuel costs through
+            smart, secure and eco-friendly ride sharing across India.
+          </p>
+
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+
+            <a href="#"><i class="fab fa-github"></i></a>
+
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+
+          <a href="index.html">Home</a>
+
+          <a href="about.html">About</a>
+
+          <a href="contact.html">Contact</a>
+
+          <a href="payment.html">Payments</a>
+
+          <a href="login.html">Login</a>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="footer-box">
+          <h3>Services</h3>
+
+          <a href="#">Ride Sharing</a>
+
+          <a href="#">Fuel Saving</a>
+
+          <a href="#">Secure Payments</a>
+
+          <a href="#">Verified Drivers</a>
+
+          <a href="#">Smart Matching</a>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-box">
+          <h3>Contact</h3>
+
+          <p><i class="fa-solid fa-location-dot"></i> Vijayawada, India</p>
+
+          <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+
+          <p><i class="fa-solid fa-envelope"></i> support@fuelshare.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 FuelShare | Designed with ❤️ for Smart Travel</p>
+      </div>
+    </footer>
+    <script src="js/navbar.js"></script>
+  </body>
+</html>

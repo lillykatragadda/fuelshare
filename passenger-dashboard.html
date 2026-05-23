@@ -1,0 +1,332 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FuelShare Passenger Dashboard</title>
+
+    <link rel="stylesheet" href="css/passenger.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+      <h1>FuelShare</h1>
+
+      <ul>
+        <li onclick="showSection('dashboard')">
+          <i class="fa-solid fa-house"></i>
+          Dashboard
+        </li>
+
+        <li onclick="showSection('bookride')">
+          <i class="fa-solid fa-car-side"></i>
+          Book Ride
+        </li>
+
+        <li onclick="showSection('rides')">
+          <i class="fa-solid fa-road"></i>
+          My Rides
+        </li>
+
+        <li onclick="showSection('payments')">
+          <i class="fa-solid fa-wallet"></i>
+          Payments
+        </li>
+
+        <li onclick="showSection('savedplaces')">
+          <i class="fa-solid fa-location-dot"></i>
+          Saved Places
+        </li>
+
+        <li onclick="showSection('profile')">
+          <i class="fa-solid fa-user"></i>
+          Profile
+        </li>
+
+        <!-- GO HOME -->
+
+        <li onclick="goHome()">
+          <i class="fa-solid fa-house"></i>
+
+          Go Back To Main Website
+        </li>
+      </ul>
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main-content">
+      <!-- DASHBOARD -->
+
+      <div id="dashboard" class="content-section active">
+        <div class="hero-section">
+          <div class="hero-text">
+            <h1>Travel Smart with FuelShare ✈️</h1>
+
+            <p>
+              Book rides instantly, track your trips, save money and travel
+              safely with verified drivers.
+            </p>
+
+            <div class="hero-buttons">
+              <button>Book Ride</button>
+
+              <button class="secondary-btn">Explore Trips</button>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img src="https://cdn-icons-png.flaticon.com/512/744/744502.png" />
+          </div>
+        </div>
+
+        <!-- STATS -->
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="icon blue">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <h2>Total Spent</h2>
+
+            <h1>₹4,520</h1>
+
+            <span>+12% This Month</span>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon green">
+              <i class="fa-solid fa-road"></i>
+            </div>
+
+            <h2>Total Rides</h2>
+
+            <h1>58</h1>
+
+            <span>5 Rides This Week</span>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon orange">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <h2>Saved Places</h2>
+
+            <h1>12</h1>
+
+            <span>Home, Office & More</span>
+          </div>
+        </div>
+
+        <!-- ANALYTICS -->
+
+        <div class="dashboard-grid">
+          <div class="chart-card">
+            <h2>Travel Analytics</h2>
+
+            <canvas id="travelChart"></canvas>
+          </div>
+
+          <div class="activity-card">
+            <h2>Recent Activities</h2>
+
+            <div class="activity">
+              <div class="activity-icon blue">
+                <i class="fa-solid fa-car"></i>
+              </div>
+
+              <div>
+                <h3>Ride Booked</h3>
+
+                <p>2 mins ago</p>
+              </div>
+            </div>
+
+            <div class="activity">
+              <div class="activity-icon green">
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+
+              <div>
+                <h3>Payment Successful</h3>
+
+                <p>15 mins ago</p>
+              </div>
+            </div>
+
+            <div class="activity">
+              <div class="activity-icon orange">
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <div>
+                <h3>New Rating Added</h3>
+
+                <p>30 mins ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOOK RIDE -->
+
+      <div id="bookride" class="content-section">
+        <div class="banner ride-banner">
+          <div class="banner-overlay">
+            <h1>Book Your Ride</h1>
+
+            <p>Find nearby drivers and book rides instantly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIDES -->
+
+      <div id="rides" class="content-section">
+        <div class="banner rides-banner">
+          <div class="banner-overlay">
+            <h1>My Rides</h1>
+
+            <p>Track completed rides and travel history.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENTS -->
+
+      <div id="payments" class="content-section">
+        <div class="banner payment-banner">
+          <div class="banner-overlay">
+            <h1>Payments Overview</h1>
+
+            <p>Track your travel spending and transactions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAVED PLACES -->
+
+      <div id="savedplaces" class="content-section">
+        <div class="banner places-banner">
+          <div class="banner-overlay">
+            <h1>Saved Places</h1>
+
+            <p>Quickly access your favourite locations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+
+      <div id="profile" class="content-section">
+        <div class="banner profile-banner">
+          <div class="banner-overlay">
+            <h1>Passenger Profile</h1>
+
+            <p>Manage your personal details and travel preferences.</p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+          <h2 id="passengerName">Passenger Name</h2>
+
+          <p id="passengerEmail">passenger@gmail.com</p>
+
+          <p id="passengerPhone">Phone</p>
+
+          <p id="passengerAge">Age</p>
+
+          <p>Total Trips: 58</p>
+
+          <button>Edit Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* LOAD USER */
+
+      const user = JSON.parse(localStorage.getItem("fuelshareUser"));
+
+      if (user) {
+        document.getElementById("passengerName").innerText =
+          user.name || "Passenger";
+
+        document.getElementById("passengerEmail").innerText =
+          user.email || "passenger@gmail.com";
+
+        document.getElementById("passengerPhone").innerText =
+          "Phone: " + (user.phone || "Not Added");
+
+        document.getElementById("passengerAge").innerText =
+          "Age: " + (user.age || "Not Added");
+      }
+
+      /* SECTION SWITCH */
+
+      function showSection(sectionId) {
+        const sections = document.querySelectorAll(".content-section");
+
+        sections.forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        document.getElementById(sectionId).classList.add("active");
+      }
+
+      /* GO HOME */
+
+      function goHome() {
+        window.location.href = "index.html";
+      }
+
+      /* CHART */
+
+      new Chart(
+        document.getElementById("travelChart"),
+
+        {
+          type: "line",
+
+          data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+
+            datasets: [
+              {
+                label: "Travel Spending",
+
+                data: [1200, 1800, 2200, 2500, 3900, 4520],
+
+                borderColor: "#2563eb",
+
+                backgroundColor: "rgba(37,99,235,0.2)",
+
+                fill: true,
+
+                tension: 0.4,
+              },
+            ],
+          },
+        },
+      );
+    </script>
+  </body>
+</html>

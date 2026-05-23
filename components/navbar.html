@@ -1,0 +1,94 @@
+<header class="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-car-side"></i>
+    FuelShare
+  </div>
+
+  <nav>
+    <ul class="nav-links">
+      <!-- NORMAL LINKS -->
+
+      <li><a href="index.html">Home</a></li>
+
+      <li><a href="about.html">About</a></li>
+
+      <li><a href="contact.html">Contact</a></li>
+
+      <li><a href="payment.html">Payments</a></li>
+
+      <!-- BEFORE LOGIN -->
+
+      <div id="beforeLogin">
+        <li>
+          <a href="login.html">Login</a>
+        </li>
+
+        <li>
+          <a href="register.html">Register</a>
+        </li>
+      </div>
+
+      <!-- AFTER LOGIN -->
+
+      <div id="afterLogin" style="display: none">
+        <li class="profile-nav">
+          <div class="profile-btn" onclick="toggleProfile()">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+            <span id="navbarName"> User </span>
+
+            <i class="fa-solid fa-angle-down"></i>
+          </div>
+
+          <!-- DROPDOWN -->
+
+          <div class="profile-dropdown" id="profileDropdown">
+            <button class="close-profile" onclick="closeProfile()">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="profile-header">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+              <h3 id="profileName">User</h3>
+
+              <p id="profileEmail">user@gmail.com</p>
+            </div>
+
+            <div class="profile-fields">
+              <div class="input-box">
+                <label>Full Name</label>
+
+                <input type="text" id="editName" />
+              </div>
+
+              <div class="input-box">
+                <label>Email</label>
+
+                <input type="email" id="editEmail" />
+              </div>
+
+              <div class="input-box">
+                <label>Phone</label>
+
+                <input type="text" id="editPhone" />
+              </div>
+
+              <div class="input-box">
+                <label>Age</label>
+
+                <input type="number" id="editAge" />
+              </div>
+            </div>
+
+            <div class="profile-actions">
+              <button onclick="saveProfile()">Save Changes</button>
+
+              <button class="logout-btn" onclick="logoutUser()">Logout</button>
+            </div>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </nav>
+</header>

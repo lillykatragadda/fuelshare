@@ -1,0 +1,226 @@
+/* ========================================
+   GLOBAL MOBILE RESPONSIVE CSS
+======================================== */
+
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* IMAGES */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* BODY */
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* FLEX FIX */
+
+.row,
+.container,
+.cards,
+.card-container,
+.dashboard,
+.hero-section,
+.content,
+.features,
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* TABLE RESPONSIVE */
+
+table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* INPUT RESPONSIVE */
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+}
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media screen and (max-width: 992px) {
+  .container,
+  .dashboard,
+  .hero-section,
+  .content,
+  .card-container,
+  .cards {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .card {
+    width: 48%;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+}
+
+/* ========================================
+   MOBILE DEVICES
+======================================== */
+
+@media screen and (max-width: 768px) {
+  /* NAVBAR */
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  /* LAYOUTS */
+
+  .container,
+  .dashboard,
+  .hero-section,
+  .content,
+  .cards,
+  .card-container,
+  .features,
+  .sections {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* CARDS */
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* TEXT */
+
+  h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* BUTTONS */
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* FORMS */
+
+  form {
+    width: 100%;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* SECTIONS */
+
+  section {
+    padding: 20px 10px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE DEVICES
+======================================== */
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}

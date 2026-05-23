@@ -1,0 +1,421 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FuelShare Driver Dashboard</title>
+
+    <link rel="stylesheet" href="css/driver.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+      <h1>FuelShare</h1>
+
+      <ul>
+        <li onclick="showSection('dashboard')">
+          <i class="fa-solid fa-chart-line"></i>
+          Dashboard
+        </li>
+
+        <li onclick="showSection('rides')">
+          <i class="fa-solid fa-car-side"></i>
+          My Rides
+        </li>
+
+        <li onclick="showSection('earnings')">
+          <i class="fa-solid fa-wallet"></i>
+          Earnings
+        </li>
+
+        <li onclick="showSection('passengers')">
+          <i class="fa-solid fa-users"></i>
+          Passengers
+        </li>
+
+        <li onclick="showSection('vehicle')">
+          <i class="fa-solid fa-car"></i>
+          Vehicle
+        </li>
+
+        <li onclick="showSection('profile')">
+          <i class="fa-solid fa-user"></i>
+          Profile
+        </li>
+
+        <!-- GO BACK BUTTON -->
+
+        <li onclick="goHome()">
+          <i class="fa-solid fa-house"></i>
+
+          Go Back To Main Website
+        </li>
+      </ul>
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main-content">
+      <!-- DASHBOARD -->
+
+      <div id="dashboard" class="content-section active">
+        <div class="hero-section">
+          <div class="hero-text">
+            <h1>Welcome Driver 🚗</h1>
+
+            <p>
+              Manage rides, track earnings, monitor passengers and grow your
+              performance using FuelShare.
+            </p>
+
+            <div class="hero-buttons">
+              <button>Start Ride</button>
+
+              <button class="secondary-btn">View Analytics</button>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" />
+          </div>
+        </div>
+
+        <!-- STATS -->
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="icon blue">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <h2>Monthly Earnings</h2>
+
+            <h1>₹12,500</h1>
+
+            <span>+18% Growth</span>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon green">
+              <i class="fa-solid fa-road"></i>
+            </div>
+
+            <h2>Completed Rides</h2>
+
+            <h1>245</h1>
+
+            <span>+12 Rides Today</span>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon orange">
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <h2>Driver Rating</h2>
+
+            <h1>4.9</h1>
+
+            <span>Top Rated Driver</span>
+          </div>
+        </div>
+
+        <!-- ANALYTICS -->
+
+        <div class="dashboard-grid">
+          <div class="chart-card">
+            <h2>Earnings Overview</h2>
+
+            <canvas id="earningsChart"></canvas>
+          </div>
+
+          <div class="activity-card">
+            <h2>Recent Activities</h2>
+
+            <div class="activity">
+              <div class="activity-icon blue">
+                <i class="fa-solid fa-car"></i>
+              </div>
+
+              <div>
+                <h3>Ride Started</h3>
+
+                <p>2 mins ago</p>
+              </div>
+            </div>
+
+            <div class="activity">
+              <div class="activity-icon green">
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+
+              <div>
+                <h3>Payment Received</h3>
+
+                <p>10 mins ago</p>
+              </div>
+            </div>
+
+            <div class="activity">
+              <div class="activity-icon orange">
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <div>
+                <h3>New Rating Added</h3>
+
+                <p>20 mins ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIDES -->
+
+      <div id="rides" class="content-section">
+        <div class="banner rides-banner">
+          <div class="banner-overlay">
+            <h1>My Rides</h1>
+
+            <p>Track ongoing rides, completed rides and ride history.</p>
+          </div>
+        </div>
+
+        <div class="rides-grid">
+          <div class="ride-card">
+            <h2>Current Ride</h2>
+
+            <p>Pickup: Vijayawada</p>
+
+            <p>Drop: Hyderabad</p>
+
+            <p>Passenger: Rahul</p>
+
+            <button>Start Navigation</button>
+          </div>
+
+          <div class="ride-card">
+            <h2>Upcoming Ride</h2>
+
+            <p>Pickup: Guntur</p>
+
+            <p>Drop: Vizag</p>
+
+            <p>Passenger: Priya</p>
+
+            <button>Accept Ride</button>
+          </div>
+
+          <div class="ride-card">
+            <h2>Ride History</h2>
+
+            <p>Completed: 245</p>
+
+            <p>Cancelled: 5</p>
+
+            <p>Success Rate: 98%</p>
+
+            <button>View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EARNINGS -->
+
+      <div id="earnings" class="content-section">
+        <div class="banner earnings-banner">
+          <div class="banner-overlay">
+            <h1>Earnings Overview</h1>
+
+            <p>Track your monthly earnings and payment performance.</p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="icon blue">
+              <i class="fa-solid fa-money-bill-wave"></i>
+            </div>
+
+            <h2>Today Earnings</h2>
+
+            <h1>₹1,250</h1>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon green">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <h2>Weekly Earnings</h2>
+
+            <h1>₹6,800</h1>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon orange">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <h2>Monthly Earnings</h2>
+
+            <h1>₹12,500</h1>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h2>Monthly Revenue Analytics</h2>
+
+          <canvas id="revenueChart"></canvas>
+        </div>
+      </div>
+
+      <!-- PASSENGERS -->
+
+      <div id="passengers" class="content-section">
+        <div class="banner passengers-banner">
+          <div class="banner-overlay">
+            <h1>Passengers</h1>
+
+            <p>View passenger ratings, feedback and activity.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VEHICLE -->
+
+      <div id="vehicle" class="content-section">
+        <div class="banner vehicle-banner">
+          <div class="banner-overlay">
+            <h1>Vehicle Information</h1>
+
+            <p>Manage vehicle details and service updates.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+
+      <div id="profile" class="content-section">
+        <div class="banner profile-banner">
+          <div class="banner-overlay">
+            <h1>Driver Profile</h1>
+
+            <p>Manage personal details, documents and security.</p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" />
+
+          <h2 id="driverName">Driver Name</h2>
+
+          <p id="driverEmail">Email</p>
+
+          <p>Experience: 5 Years</p>
+
+          <p>Rating: ⭐ 4.9</p>
+
+          <button>Edit Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* LOAD USER */
+
+      const user = JSON.parse(localStorage.getItem("fuelshareUser"));
+
+      if (user) {
+        document.getElementById("driverName").innerText = user.name || "Driver";
+
+        document.getElementById("driverEmail").innerText =
+          user.email || "driver@gmail.com";
+      }
+
+      /* SHOW SECTION */
+
+      function showSection(sectionId) {
+        const sections = document.querySelectorAll(".content-section");
+
+        sections.forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        document.getElementById(sectionId).classList.add("active");
+      }
+
+      /* GO HOME */
+
+      function goHome() {
+        window.location.href = "index.html";
+      }
+
+      /* CHART */
+
+      new Chart(
+        document.getElementById("earningsChart"),
+
+        {
+          type: "line",
+
+          data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+
+            datasets: [
+              {
+                label: "Earnings",
+
+                data: [5000, 7000, 8500, 9500, 11000, 12500],
+
+                borderColor: "#2563eb",
+
+                backgroundColor: "rgba(37,99,235,0.2)",
+
+                fill: true,
+
+                tension: 0.4,
+              },
+            ],
+          },
+        },
+      );
+
+      new Chart(
+        document.getElementById("revenueChart"),
+
+        {
+          type: "bar",
+
+          data: {
+            labels: ["Week1", "Week2", "Week3", "Week4"],
+
+            datasets: [
+              {
+                label: "Revenue",
+
+                data: [2500, 3200, 2900, 3900],
+
+                backgroundColor: ["#2563eb", "#7c3aed", "#10b981", "#f59e0b"],
+              },
+            ],
+          },
+        },
+      );
+    </script>
+  </body>
+</html>

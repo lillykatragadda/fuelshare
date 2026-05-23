@@ -1,0 +1,671 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FuelShare Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+      <h1>FuelShare</h1>
+
+      <ul>
+        <li onclick="showSection('dashboard')">
+          <i class="fa-solid fa-chart-line"></i>
+          Dashboard
+        </li>
+
+        <li onclick="showSection('users')">
+          <i class="fa-solid fa-users"></i>
+          Users
+        </li>
+
+        <li onclick="showSection('drivers')">
+          <i class="fa-solid fa-car"></i>
+          Drivers
+        </li>
+
+        <li onclick="showSection('payments')">
+          <i class="fa-solid fa-wallet"></i>
+          Payments
+        </li>
+
+        <li onclick="showSection('analytics')">
+          <i class="fa-solid fa-chart-pie"></i>
+          Analytics
+        </li>
+
+        <li onclick="showSection('settings')">
+          <i class="fa-solid fa-gear"></i>
+          Settings
+        </li>
+
+        <!-- GO BACK BUTTON -->
+
+        <li onclick="goHome()">
+          <i class="fa-solid fa-house"></i>
+          Go To Main Website
+        </li>
+      </ul>
+    </div>
+    <!-- MAIN -->
+
+    <div class="main-content">
+      <!-- DASHBOARD -->
+
+      <div id="dashboard" class="content-section active">
+        <div class="hero-section">
+          <div class="hero-text">
+            <h1>FuelShare Admin Dashboard 🚀</h1>
+
+            <p>
+              Monitor users, drivers, rides, analytics and complete platform
+              performance from one powerful dashboard.
+            </p>
+
+            <div class="hero-buttons">
+              <button>Generate Report</button>
+
+              <button class="secondary-btn">Platform Insights</button>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2620/2620971.png"
+            />
+          </div>
+        </div>
+
+        <!-- STATS -->
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="icon blue">
+              <i class="fa-solid fa-users"></i>
+            </div>
+
+            <h2>Total Users</h2>
+
+            <h1>10,240</h1>
+
+            <span>+12% Growth</span>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon green">
+              <i class="fa-solid fa-car"></i>
+            </div>
+
+            <h2>Total Drivers</h2>
+
+            <h1>3,450</h1>
+
+            <span>+8% Growth</span>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon orange">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <h2>Total Revenue</h2>
+
+            <h1>₹5,20,000</h1>
+
+            <span>+18% Growth</span>
+          </div>
+        </div>
+
+        <!-- ANALYTICS -->
+
+        <div class="dashboard-grid">
+          <div class="chart-card">
+            <h2>Revenue Analytics</h2>
+
+            <canvas id="revenueChart"></canvas>
+          </div>
+
+          <div class="activity-card">
+            <h2>Live Activities</h2>
+
+            <div class="activity">
+              <div class="activity-icon blue">
+                <i class="fa-solid fa-user-plus"></i>
+              </div>
+
+              <div>
+                <h3>New User Registered</h3>
+
+                <p>2 mins ago</p>
+              </div>
+            </div>
+
+            <div class="activity">
+              <div class="activity-icon green">
+                <i class="fa-solid fa-car-side"></i>
+              </div>
+
+              <div>
+                <h3>Ride Completed</h3>
+
+                <p>10 mins ago</p>
+              </div>
+            </div>
+
+            <div class="activity">
+              <div class="activity-icon orange">
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+
+              <div>
+                <h3>Payment Received</h3>
+
+                <p>15 mins ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BENEFITS -->
+
+        <div class="section-title">
+          <h1>Platform Benefits</h1>
+
+          <p>Why FuelShare platform is growing rapidly</p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-box">
+            <i class="fa-solid fa-shield"></i>
+
+            <h2>Secure Platform</h2>
+
+            <p>Verified users and drivers with safe payment system.</p>
+          </div>
+
+          <div class="benefit-box">
+            <i class="fa-solid fa-bolt"></i>
+
+            <h2>Fast Booking</h2>
+
+            <p>Users can instantly book rides with quick matching.</p>
+          </div>
+
+          <div class="benefit-box">
+            <i class="fa-solid fa-earth-asia"></i>
+
+            <h2>Growing Community</h2>
+
+            <p>Thousands of active users join every month.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- USERS -->
+
+      <div id="users" class="content-section">
+        <div class="banner users-banner">
+          <div class="banner-overlay">
+            <h1>Users Management</h1>
+
+            <p>Track users, activity, engagement and performance.</p>
+          </div>
+        </div>
+
+        <!-- USER CARDS -->
+
+        <div class="users-grid">
+          <div class="user-card">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" />
+
+            <h2>Rahul Kumar</h2>
+
+            <span class="active-user"> Active User </span>
+
+            <p>Frequently books rides between Hyderabad and Vijayawada.</p>
+          </div>
+
+          <div class="user-card">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+            <h2>Priya Sharma</h2>
+
+            <span class="premium-user"> Premium Member </span>
+
+            <p>Daily active user with premium membership.</p>
+          </div>
+
+          <div class="user-card">
+            <img src="https://randomuser.me/api/portraits/men/55.jpg" />
+
+            <h2>Arjun Reddy</h2>
+
+            <span class="inactive-user"> Inactive User </span>
+
+            <p>Inactive from last 2 months.</p>
+          </div>
+        </div>
+
+        <!-- USER ANALYTICS -->
+
+        <div class="section-title">
+          <h1>User Analytics</h1>
+        </div>
+
+        <div class="analytics-cards">
+          <div class="analytics-box">
+            <h2>Daily Active Users</h2>
+
+            <h1>8,420</h1>
+
+            <span>+15% Growth</span>
+          </div>
+
+          <div class="analytics-box">
+            <h2>Premium Users</h2>
+
+            <h1>2,140</h1>
+
+            <span>+10% Growth</span>
+          </div>
+
+          <div class="analytics-box">
+            <h2>Inactive Users</h2>
+
+            <h1>320</h1>
+
+            <span class="danger"> -5% Decrease </span>
+          </div>
+        </div>
+
+        <!-- USER TIMELINE -->
+
+        <div class="section-title">
+          <h1>Recent User Activities</h1>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-icon blue">
+              <i class="fa-solid fa-car"></i>
+            </div>
+
+            <div class="timeline-content">
+              <h2>Ride Booked</h2>
+
+              <p>Rahul booked Hyderabad → Vijayawada ride.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon green">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <div class="timeline-content">
+              <h2>Payment Successful</h2>
+
+              <p>Priya completed ₹450 payment successfully.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRIVERS -->
+
+      <div id="drivers" class="content-section">
+        <div class="banner drivers-banner">
+          <div class="banner-overlay">
+            <h1>Drivers Management</h1>
+
+            <p>Track performance, ratings and earnings.</p>
+          </div>
+        </div>
+
+        <div class="drivers-grid">
+          <div class="driver-card">
+            <i class="fa-solid fa-car-side"></i>
+
+            <h2>Rahul Driver</h2>
+
+            <p>Hyundai i20</p>
+
+            <span>⭐ 4.9 Rating</span>
+
+            <button>View Details</button>
+          </div>
+
+          <div class="driver-card">
+            <i class="fa-solid fa-car-side"></i>
+
+            <h2>Kiran Driver</h2>
+
+            <p>Swift Dzire</p>
+
+            <span>⭐ 4.7 Rating</span>
+
+            <button>View Details</button>
+          </div>
+
+          <div class="driver-card">
+            <i class="fa-solid fa-car-side"></i>
+
+            <h2>Vamsi Driver</h2>
+
+            <p>Kia Sonet</p>
+
+            <span>⭐ 4.8 Rating</span>
+
+            <button>View Details</button>
+          </div>
+        </div>
+
+        <!-- DRIVER PERFORMANCE -->
+
+        <div class="performance-grid">
+          <div class="performance-card">
+            <h2>Top Driver</h2>
+
+            <h1>Rahul Driver</h1>
+
+            <span>⭐ 4.9 Rating</span>
+          </div>
+
+          <div class="performance-card">
+            <h2>Total Completed Rides</h2>
+
+            <h1>12,540</h1>
+
+            <span>+20% Growth</span>
+          </div>
+
+          <div class="performance-card">
+            <h2>Verified Drivers</h2>
+
+            <h1>2,840</h1>
+
+            <span>98% Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENTS -->
+
+      <div id="payments" class="content-section">
+        <div class="banner payments-banner">
+          <div class="banner-overlay">
+            <h1>Payment Management</h1>
+
+            <p>Track transactions and payment partners.</p>
+          </div>
+        </div>
+
+        <div class="payment-grid">
+          <div class="payment-card">
+            <i class="fa-solid fa-wallet"></i>
+
+            <h2>₹5,20,000</h2>
+
+            <p>Total Revenue</p>
+          </div>
+
+          <div class="payment-card">
+            <i class="fa-brands fa-google-pay"></i>
+
+            <h2>Google Pay</h2>
+
+            <p>Most Used Partner</p>
+          </div>
+
+          <div class="payment-card">
+            <i class="fa-solid fa-building-columns"></i>
+
+            <h2>RazorPay</h2>
+
+            <p>Secure Gateway</p>
+          </div>
+        </div>
+
+        <!-- TRANSACTIONS -->
+
+        <div class="transaction-table">
+          <div class="transaction-row">
+            <span>Rahul</span>
+
+            <span>₹450</span>
+
+            <span>Google Pay</span>
+
+            <span class="success"> Completed </span>
+          </div>
+
+          <div class="transaction-row">
+            <span>Priya</span>
+
+            <span>₹620</span>
+
+            <span>PhonePe</span>
+
+            <span class="success"> Completed </span>
+          </div>
+
+          <div class="transaction-row">
+            <span>Arjun</span>
+
+            <span>₹300</span>
+
+            <span>RazorPay</span>
+
+            <span class="pending"> Pending </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANALYTICS -->
+
+      <div id="analytics" class="content-section">
+        <div class="banner analytics-banner">
+          <div class="banner-overlay">
+            <h1>Analytics Dashboard</h1>
+
+            <p>Monitor platform growth and ride statistics.</p>
+          </div>
+        </div>
+
+        <div class="analytics-layout">
+          <div class="analytics-card">
+            <h2>Ride Statistics</h2>
+
+            <canvas id="analyticsChart"></canvas>
+          </div>
+
+          <div class="mini-stats">
+            <div class="mini-card">
+              <i class="fa-solid fa-road"></i>
+
+              <h2>1,250</h2>
+
+              <p>Daily Rides</p>
+            </div>
+
+            <div class="mini-card">
+              <i class="fa-solid fa-user-check"></i>
+
+              <h2>980</h2>
+
+              <p>Active Drivers</p>
+            </div>
+
+            <div class="mini-card">
+              <i class="fa-solid fa-star"></i>
+
+              <h2>98%</h2>
+
+              <p>Success Rate</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- INSIGHTS -->
+
+        <div class="insights-grid">
+          <div class="insight-card">
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h2>Ride Growth</h2>
+
+            <p>Ride bookings increased by 35%.</p>
+          </div>
+
+          <div class="insight-card">
+            <i class="fa-solid fa-user-group"></i>
+
+            <h2>User Engagement</h2>
+
+            <p>More than 8,000 users active daily.</p>
+          </div>
+
+          <div class="insight-card">
+            <i class="fa-solid fa-wallet"></i>
+
+            <h2>Revenue Growth</h2>
+
+            <p>Revenue increased significantly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+
+      <div id="settings" class="content-section">
+        <div class="banner settings-banner">
+          <div class="banner-overlay">
+            <h1>Website Settings</h1>
+
+            <p>Configure website and admin settings.</p>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <div class="setting-card">
+            <i class="fa-solid fa-user-shield"></i>
+
+            <h2>Add New Admin</h2>
+
+            <button>Configure</button>
+          </div>
+
+          <div class="setting-card">
+            <i class="fa-solid fa-globe"></i>
+
+            <h2>Website Settings</h2>
+
+            <button>Configure</button>
+          </div>
+
+          <div class="setting-card">
+            <i class="fa-solid fa-bell"></i>
+
+            <h2>Notifications</h2>
+
+            <button>Configure</button>
+          </div>
+        </div>
+
+        <!-- SETTINGS FORM -->
+
+        <div class="settings-form">
+          <input type="text" placeholder="Website Name" />
+
+          <input type="email" placeholder="Support Email" />
+
+          <input type="text" placeholder="Contact Number" />
+
+          <select>
+            <option>Enable Notifications</option>
+
+            <option>Disable Notifications</option>
+          </select>
+
+          <button>Save Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT -->
+
+    <script>
+      function showSection(sectionId) {
+        const sections = document.querySelectorAll(".content-section");
+
+        sections.forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        document.getElementById(sectionId).classList.add("active");
+      }
+
+      function goHome() {
+        window.location.href = "index.html";
+      }
+      new Chart(document.getElementById("revenueChart"), {
+        type: "line",
+
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+
+          datasets: [
+            {
+              label: "Revenue",
+
+              data: [12000, 18000, 15000, 25000, 22000, 32000],
+
+              borderColor: "#2563eb",
+
+              backgroundColor: "rgba(37,99,235,0.2)",
+
+              fill: true,
+
+              tension: 0.4,
+            },
+          ],
+        },
+      });
+
+      new Chart(document.getElementById("analyticsChart"), {
+        type: "doughnut",
+
+        data: {
+          labels: ["Completed", "Pending", "Cancelled"],
+
+          datasets: [
+            {
+              data: [75, 15, 10],
+
+              backgroundColor: ["#2563eb", "#10b981", "#f59e0b"],
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

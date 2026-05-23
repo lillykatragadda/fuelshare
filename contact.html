@@ -1,0 +1,316 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Contact FuelShare</title>
+
+    <link rel="stylesheet" href="css/contact.css" />
+
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="logo">
+        <i class="fa-solid fa-car-side"></i>
+        FuelShare
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+
+          <li>
+            <a href="about.html">About</a>
+          </li>
+
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+
+          <li>
+            <a href="payment.html">Payments</a>
+          </li>
+
+          <!-- BEFORE LOGIN -->
+
+          <div id="beforeLogin">
+            <li id="loginNav">
+              <a href="login.html">Login</a>
+            </li>
+
+            <li id="registerNav">
+              <a href="register.html">Register</a>
+            </li>
+          </div>
+
+          <!-- AFTER LOGIN -->
+
+          <div id="afterLogin" style="display: none">
+            <li class="profile-nav">
+              <div class="profile-btn" onclick="toggleProfile()">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+                <span id="navbarName"> User </span>
+
+                <i class="fa-solid fa-angle-down"></i>
+              </div>
+
+              <!-- PROFILE DROPDOWN -->
+
+              <div class="profile-dropdown" id="profileDropdown">
+                <button class="close-profile" onclick="closeProfile()">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="profile-header">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+
+                  <h3 id="profileName">User</h3>
+
+                  <p id="profileEmail">user@gmail.com</p>
+                </div>
+
+                <div class="profile-fields">
+                  <div class="input-box">
+                    <label>Full Name</label>
+
+                    <input type="text" id="editName" />
+                  </div>
+
+                  <div class="input-box">
+                    <label>Email</label>
+
+                    <input type="email" id="editEmail" />
+                  </div>
+
+                  <div class="input-box">
+                    <label>Phone</label>
+
+                    <input type="text" id="editPhone" />
+                  </div>
+
+                  <div class="input-box">
+                    <label>Age</label>
+
+                    <input type="number" id="editAge" />
+                  </div>
+                </div>
+
+                <div class="profile-actions">
+                  <button onclick="saveProfile()">Save Changes</button>
+
+                  <button class="logout-btn" onclick="logoutUser()">
+                    Logout
+                  </button>
+                </div>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+
+    <section class="contact-hero">
+      <div class="overlay"></div>
+
+      <div class="hero-content">
+        <h1>Contact FuelShare</h1>
+
+        <p>We are here to help you anytime.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+
+    <section class="contact-section">
+      <div class="contact-container">
+        <!-- LEFT -->
+
+        <div class="contact-info">
+          <h1>Get In Touch</h1>
+
+          <p>
+            Feel free to contact us for ride support, payment issues, or any
+            queries related to FuelShare.
+          </p>
+
+          <div class="info-box">
+            <i class="fa-solid fa-location-dot"></i>
+
+            <div>
+              <h3>Address</h3>
+
+              <p>Vijayawada, Andhra Pradesh</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <i class="fa-solid fa-phone"></i>
+
+            <div>
+              <h3>Phone</h3>
+
+              <p>+91 9876543210</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <i class="fa-solid fa-envelope"></i>
+
+            <div>
+              <h3>Email</h3>
+
+              <p>support@fuelshare.com</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="contact-form">
+          <form>
+            <input type="text" placeholder="Enter Your Name" required />
+
+            <input type="email" placeholder="Enter Your Email" required />
+
+            <input type="text" placeholder="Subject" required />
+
+            <textarea placeholder="Enter Message" rows="6" required></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+
+    <section class="map-section">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.404315270571!2d80.64801587400455!3d16.50617422816821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fa7d5aab9c9b%3A0xf9a5f6a0f2c2c9d4!2sVijayawada!5e0!3m2!1sen!2sin!4v1716111000000!5m2!1sen!2sin"
+        allowfullscreen=""
+        loading="lazy"
+      >
+      </iframe>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="modern-footer">
+      <div class="footer-wave"></div>
+
+      <div class="footer-content">
+        <!-- LEFT -->
+
+        <div class="footer-box">
+          <h2>
+            <i class="fa-solid fa-car-side"></i>
+            FuelShare
+          </h2>
+
+          <p>
+            FuelShare helps passengers and drivers save fuel costs through
+            smart, secure and eco-friendly ride sharing across India.
+          </p>
+
+          <div class="footer-socials">
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#">
+              <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+              <i class="fab fa-github"></i>
+            </a>
+
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+
+          <a href="index.html">Home</a>
+
+          <a href="about.html">About</a>
+
+          <a href="contact.html">Contact</a>
+
+          <a href="payment.html">Payments</a>
+
+          <a href="login.html">Login</a>
+        </div>
+
+        <!-- SERVICES -->
+
+        <div class="footer-box">
+          <h3>Services</h3>
+
+          <a href="#">Ride Sharing</a>
+
+          <a href="#">Fuel Saving</a>
+
+          <a href="#">Secure Payments</a>
+
+          <a href="#">Verified Drivers</a>
+
+          <a href="#">Smart Matching</a>
+        </div>
+
+        <!-- CONTACT -->
+
+        <div class="footer-box">
+          <h3>Contact</h3>
+
+          <p>
+            <i class="fa-solid fa-location-dot"></i>
+            Vijayawada, India
+          </p>
+
+          <p>
+            <i class="fa-solid fa-phone"></i>
+            +91 98765 43210
+          </p>
+
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            support@fuelshare.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 FuelShare | Designed with ❤️ for Smart Travel</p>
+      </div>
+    </footer>
+
+    <!-- LOAD NAVBAR -->
+
+    <!-- LOAD NAVBAR -->
+
+    <script src="js/navbar.js"></script>
+  </body>
+</html>
