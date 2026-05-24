@@ -10,7 +10,7 @@ window.onload = async function () {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/get-profile/${user.email}`,
+        `https://fuelshare-exk6.onrender.com/get-profile/${user.email}`,
       );
 
       const data = await response.json();
@@ -67,7 +67,7 @@ async function saveProfile() {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/save-profile",
+      "https://fuelshare-exk6.onrender.com4/save-profile",
 
       {
         method: "POST",
