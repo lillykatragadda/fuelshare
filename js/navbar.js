@@ -67,7 +67,7 @@ async function saveProfile() {
 
   try {
     const response = await fetch(
-      "https://fuelshare-exk6.onrender.com4/save-profile",
+      "https://fuelshare-exk6.onrender.com/save-profile",
 
       {
         method: "POST",
